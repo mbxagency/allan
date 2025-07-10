@@ -1,0 +1,50 @@
+# Arquivos do CV original
+CV [Allan Queiroz] (1).pdf
+
+# CV gerado pelo site
+Allan_Queiroz_CV.pdf
+
+# Outros PDFs
+*.pdf
+
+# Arquivos do sistema
+.DS_Store
+Thumbs.db
+
+# Arquivos temporários
+*.tmp
+*.temp
+*.log
+
+# Arquivos de backup
+*.bak
+*.backup
+
+# Arquivos de IDE/Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Arquivos de dependências (se houver)
+node_modules/
+vendor/
+
+# Arquivos de ambiente
+.env
+.env.local
+.env.production
+
+# Arquivos de cache
+.cache/
+dist/
+build/
+
+# Arquivos de documentação temporários
+desconto_em_folha.txt
+
+# Imagens pessoais
+perfil.jpeg
+*.jpeg
+*.jpg
+*.png 

@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Allan da Silva Queiroz - CV</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.4;
+            color: #1f2937;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .cv-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Header */
+        .cv-header {
+            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+            color: white;
+            padding: 2.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cv-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+
+        .profile-section {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .profile-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            object-fit: cover;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .profile-info h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile-info h2 {
+            font-size: 1.3rem;
+            font-weight: 500;
+            opacity: 0.9;
+            margin-bottom: 1rem;
+        }
+
+        .contact-info {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 25px;
+            color: white;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .contact-item:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Content */
+        .cv-content {
+            padding: 2rem;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 2rem;
+        }
+
+        /* Left Column */
+        .left-column {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .section {
+            margin-bottom: 2rem;
+        }
+
+        .section h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #2563eb;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .section h3 i {
+            font-size: 1.2rem;
+        }
+
+        /* Skills */
+        .skills-list {
+            list-style: none;
+        }
+
+        .skills-list li {
+            padding: 0.6rem 0;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .skills-list li:last-child {
+            border-bottom: none;
+        }
+
+        .skill-name {
+            font-weight: 500;
+            color: #4b5563;
+        }
+
+        /* Education */
+        .education-item {
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .education-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        .education-title {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .education-school {
+            color: #667eea;
+            font-size: 0.9rem;
+            margin-bottom: 3px;
+        }
+
+        .education-period {
+            color: #6c757d;
+            font-size: 0.85rem;
+        }
+
+        /* Right Column */
+        .right-column {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        /* Experience Grid */
+        .experience-flow {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .experience-item {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(135deg, #2563eb, #3b82f6);
+            transition: width 0.3s ease;
+        }
+
+        .experience-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            border-color: #2563eb;
+        }
+
+        .experience-item:hover::before {
+            width: 8px;
+        }
+
+        .experience-item.featured {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            border: 1px solid #bae6fd;
+            box-shadow: 0 5px 15px rgba(37, 99, 235, 0.1);
+        }
+
+        .experience-item.featured::before {
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+        }
+
+        .experience-item.compact {
+            padding: 0.8rem 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .experience-item.compact .experience-header {
+            margin-bottom: 0;
+        }
+
+        .experience-item.compact .experience-title {
+            font-size: 1rem;
+        }
+
+        .experience-item.compact .experience-company {
+            font-size: 0.9rem;
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 0.8rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .experience-title {
+            font-weight: 600;
+            color: #1f2937;
+            font-size: 1.1rem;
+        }
+
+        .experience-company {
+            color: #2563eb;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .experience-meta {
+            text-align: right;
+        }
+
+        .experience-period {
+            color: #6b7280;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .experience-location {
+            color: #9ca3af;
+            font-size: 0.85rem;
+        }
+
+        .experience-desc {
+            color: #4b5563;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+
+
+        /* Action Buttons */
+        .action-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .action-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 25px;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);
+        }
+
+        .btn-secondary {
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: #2563eb;
+            border: 2px solid #2563eb;
+        }
+
+        .btn-outline:hover {
+            background: #2563eb;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Print Styles */
+        @media print {
+            * {
+                -webkit-print-color-adjust: exact !important;
+                color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+            
+            body {
+                background: white !important;
+                padding: 0 !important;
+                margin: 0 !important;
+                font-family: 'Inter', sans-serif !important;
+                line-height: 1.4 !important;
+            }
+            
+            .cv-container {
+                box-shadow: none !important;
+                margin: 0 !important;
+                max-width: none !important;
+                border-radius: 0 !important;
+                page-break-inside: avoid !important;
+                background: white !important;
+            }
+            
+            .cv-header {
+                background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%) !important;
+                color: white !important;
+                padding: 0.8rem !important;
+                page-break-inside: avoid !important;
+                page-break-after: avoid !important;
+            }
+            
+            .cv-header::before {
+                display: none !important;
+            }
+            
+            .profile-section {
+                gap: 1rem !important;
+                position: relative !important;
+                z-index: 2 !important;
+            }
+            
+            .profile-image {
+                width: 80px !important;
+                height: 80px !important;
+                border: 3px solid rgba(255, 255, 255, 0.3) !important;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2) !important;
+            }
+            
+            .profile-info h1 {
+                font-size: 1.6rem !important;
+                font-weight: 800 !important;
+                margin-bottom: 0.2rem !important;
+                text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+            }
+            
+            .profile-info h2 {
+                font-size: 0.9rem !important;
+                font-weight: 500 !important;
+                margin-bottom: 0.4rem !important;
+                opacity: 0.9 !important;
+            }
+            
+            .contact-info {
+                gap: 0.3rem !important;
+                flex-wrap: wrap !important;
+            }
+            
+            .contact-item {
+                padding: 0.2rem 0.6rem !important;
+                background: rgba(255, 255, 255, 0.2) !important;
+                border: 1px solid rgba(255, 255, 255, 0.3) !important;
+                border-radius: 25px !important;
+                font-size: 0.75rem !important;
+                backdrop-filter: blur(10px) !important;
+            }
+            
+            .cv-content {
+                padding: 1.5rem !important;
+                background: white !important;
+                page-break-before: avoid !important;
+            }
+            
+            .content-grid {
+                gap: 1.5rem !important;
+                display: grid !important;
+                grid-template-columns: 1fr 2fr !important;
+            }
+            
+            .left-column {
+                gap: 1.5rem !important;
+            }
+            
+            .section {
+                margin-bottom: 1.5rem !important;
+            }
+            
+            .section h3 {
+                font-size: 1.2rem !important;
+                font-weight: 700 !important;
+                color: #2563eb !important;
+                margin-bottom: 0.8rem !important;
+                display: flex !important;
+                align-items: center !important;
+                gap: 0.5rem !important;
+            }
+            
+            .section h3 i {
+                font-size: 1rem !important;
+            }
+            
+            .skills-list {
+                list-style: none !important;
+            }
+            
+            .skills-list li {
+                padding: 0.4rem 0 !important;
+                border-bottom: 1px solid #e5e7eb !important;
+                font-size: 0.9rem !important;
+            }
+            
+            .skills-list li:last-child {
+                border-bottom: none !important;
+            }
+            
+            .skill-name {
+                font-weight: 500 !important;
+                color: #4b5563 !important;
+            }
+            
+            .education-item {
+                margin-bottom: 0.8rem !important;
+                padding-bottom: 0.8rem !important;
+                border-bottom: 1px solid #e9ecef !important;
+            }
+            
+            .education-item:last-child {
+                border-bottom: none !important;
+                margin-bottom: 0 !important;
+            }
+            
+            .education-title {
+                font-weight: 600 !important;
+                color: #333 !important;
+                margin-bottom: 0.2rem !important;
+                font-size: 0.95rem !important;
+            }
+            
+            .education-school {
+                color: #2563eb !important;
+                font-size: 0.85rem !important;
+                margin-bottom: 0.1rem !important;
+            }
+            
+            .education-period {
+                color: #6c757d !important;
+                font-size: 0.8rem !important;
+            }
+            
+            .right-column {
+                gap: 1.5rem !important;
+            }
+            
+            .experience-flow {
+                display: grid !important;
+                gap: 0.8rem !important;
+            }
+            
+            .experience-item {
+                background: white !important;
+                border: 1px solid #e5e7eb !important;
+                border-radius: 12px !important;
+                padding: 1.2rem !important;
+                position: relative !important;
+                overflow: hidden !important;
+            }
+            
+            .experience-item::before {
+                content: '' !important;
+                position: absolute !important;
+                top: 0 !important;
+                left: 0 !important;
+                width: 4px !important;
+                height: 100% !important;
+                background: linear-gradient(135deg, #2563eb, #3b82f6) !important;
+            }
+            
+            .experience-item.featured {
+                background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%) !important;
+                border: 1px solid #bae6fd !important;
+                box-shadow: 0 5px 15px rgba(37, 99, 235, 0.1) !important;
+            }
+            
+            .experience-item.featured::before {
+                background: linear-gradient(135deg, #2563eb, #1d4ed8) !important;
+            }
+            
+            .experience-item.compact {
+                padding: 0.6rem 1.2rem !important;
+                margin-bottom: 0.3rem !important;
+            }
+            
+            .experience-item.compact .experience-header {
+                margin-bottom: 0 !important;
+            }
+            
+            .experience-item.compact .experience-title {
+                font-size: 0.9rem !important;
+            }
+            
+            .experience-item.compact .experience-company {
+                font-size: 0.8rem !important;
+            }
+            
+            .experience-header {
+                display: flex !important;
+                justify-content: space-between !important;
+                align-items: flex-start !important;
+                margin-bottom: 0.6rem !important;
+                flex-wrap: wrap !important;
+                gap: 0.8rem !important;
+            }
+            
+            .experience-title {
+                font-weight: 600 !important;
+                color: #1f2937 !important;
+                font-size: 1rem !important;
+            }
+            
+            .experience-company {
+                color: #2563eb !important;
+                font-weight: 500 !important;
+                font-size: 0.9rem !important;
+            }
+            
+            .experience-meta {
+                text-align: right !important;
+            }
+            
+            .experience-period {
+                color: #6b7280 !important;
+                font-size: 0.85rem !important;
+                font-weight: 500 !important;
+            }
+            
+            .experience-location {
+                color: #9ca3af !important;
+                font-size: 0.8rem !important;
+            }
+            
+            .experience-desc {
+                color: #4b5563 !important;
+                font-size: 0.9rem !important;
+                line-height: 1.4 !important;
+            }
+            
+
+            
+            .action-buttons {
+                display: none !important;
+            }
+            
+            /* Garantir que caiba em uma página */
+            @page {
+                size: A4;
+                margin: 0.8cm;
+            }
+            
+            /* Evitar quebras de página desnecessárias */
+            .cv-container {
+                page-break-inside: avoid !important;
+            }
+            
+            .content-grid {
+                page-break-inside: avoid !important;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .profile-section {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .contact-info {
+                justify-content: center;
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .action-btn {
+                width: 100%;
+                max-width: 250px;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="cv-container">
+        <!-- Header -->
+        <div class="cv-header">
+            <div class="profile-section">
+                <img src="perfil.jpeg" alt="Allan Queiroz" class="profile-image">
+                <div class="profile-info">
+                    <h1>Allan da Silva Queiroz</h1>
+                    <h2>Representante Propagandista</h2>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>allansqueiroz@hotmail.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>(41) 9 9707-1091</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span id="cv-address">Curitiba/PR</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="cv-content">
+            <div class="content-grid">
+                <!-- Left Column -->
+                <div class="left-column">
+                    <!-- Skills -->
+                    <div class="section">
+                        <h3><i class="fas fa-star"></i>Competências</h3>
+                        <ul class="skills-list">
+                            <li><span class="skill-name">Visitas Médicas</span></li>
+                            <li><span class="skill-name">Gestão de Território</span></li>
+                            <li><span class="skill-name">SNC</span></li>
+                            <li><span class="skill-name">Negociação</span></li>
+                            <li><span class="skill-name">KPIs</span></li>
+                            <li><span class="skill-name">Fidelização</span></li>
+                            <li><span class="skill-name">Apresentação Técnica</span></li>
+                            <li><span class="skill-name">Trabalho em Equipe</span></li>
+                        </ul>
+                    </div>
+
+                    <!-- Education -->
+                    <div class="section">
+                        <h3><i class="fas fa-graduation-cap"></i>Educação</h3>
+                        <div class="education-item">
+                            <div class="education-title">Pós-Graduação em Desenvolvimento de Lideranças Transformadoras</div>
+                            <div class="education-school">BBI of Chicago</div>
+                            <div class="education-period">08/2024 - 08/2026</div>
+                        </div>
+                        <div class="education-item">
+                            <div class="education-title">Bacharelado em Administração de Empresas</div>
+                            <div class="education-school">Centro Universitário do Norte</div>
+                            <div class="education-period">03/2011 - 03/2015</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column -->
+                <div class="right-column">
+                    <!-- Experience Flow -->
+                    <div class="section">
+                        <h3><i class="fas fa-briefcase"></i>Experiência Profissional</h3>
+                        <div class="experience-flow">
+                            <div class="experience-item featured">
+                                <div class="experience-header">
+                                    <div>
+                                        <div class="experience-title">Representante Propagandista</div>
+                                        <div class="experience-company">Apsen Farmacêutica</div>
+                                    </div>
+                                    <div class="experience-meta">
+                                        <div class="experience-period">2021 - 2025</div>
+                                        <div class="experience-location">Curitiba/PR</div>
+                                    </div>
+                                </div>
+                                <div class="experience-desc">
+                                    Gestão de território com foco em visitas médicas, análise de KPIs e superação de metas. Atuação consultiva na apresentação de medicamentos da linha SNC, com cobertura de 98% do painel médico e assertividade prescricional.
+                                </div>
+                            </div>
+
+                            <div class="experience-item">
+                                <div class="experience-header">
+                                    <div>
+                                        <div class="experience-title">Consultor Comercial</div>
+                                        <div class="experience-company">Doctoralia</div>
+                                    </div>
+                                    <div class="experience-meta">
+                                        <div class="experience-period">2020 - 2021</div>
+                                        <div class="experience-location">Curitiba/PR</div>
+                                    </div>
+                                </div>
+                                <div class="experience-desc">
+                                    Atendimento consultivo a médicos e clínicas, prospecção e negociação de contratos. Monitoramento de indicadores de performance e satisfação do cliente para fidelização e crescimento da carteira.
+                                </div>
+                            </div>
+
+                            <div class="experience-item compact">
+                                <div class="experience-header">
+                                    <div>
+                                        <div class="experience-title">Consultor de Vendas</div>
+                                        <div class="experience-company">Shizen Veículos</div>
+                                    </div>
+                                    <div class="experience-meta">
+                                        <div class="experience-period">2020</div>
+                                        <div class="experience-location">Manaus/AM</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="experience-item compact">
+                                <div class="experience-header">
+                                    <div>
+                                        <div class="experience-title">Assistente de Vendas</div>
+                                        <div class="experience-company">Wiz Soluções</div>
+                                    </div>
+                                    <div class="experience-meta">
+                                        <div class="experience-period">2018 - 2019</div>
+                                        <div class="experience-location">Manaus/AM</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="experience-item compact">
+                                <div class="experience-header">
+                                    <div>
+                                        <div class="experience-title">Caixa</div>
+                                        <div class="experience-company">Itaú Unibanco</div>
+                                    </div>
+                                    <div class="experience-meta">
+                                        <div class="experience-period">2013 - 2016</div>
+                                        <div class="experience-location">Manaus/AM</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="experience-item compact">
+                                <div class="experience-header">
+                                    <div>
+                                        <div class="experience-title">Promotor de Vendas</div>
+                                        <div class="experience-company">Ramos & Silva Correspondente</div>
+                                    </div>
+                                    <div class="experience-meta">
+                                        <div class="experience-period">2011 - 2012</div>
+                                        <div class="experience-location">Manaus/AM</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="action-buttons">
+                <button class="action-btn btn-primary" onclick="window.print()">
+                    <i class="fas fa-print"></i>
+                    Imprimir CV
+                </button>
+                <a href="https://wa.me/5541997071091" target="_blank" class="action-btn btn-secondary">
+                    <i class="fab fa-whatsapp"></i>
+                    Contato WhatsApp
+                </a>
+                <a href="https://www.linkedin.com/in/allansqueiroz/" target="_blank" class="action-btn btn-outline">
+                    <i class="fab fa-linkedin"></i>
+                    Ver LinkedIn
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Função para atualizar o endereço no currículo
+        function updateAddress(newAddress) {
+            document.getElementById('cv-address').textContent = newAddress;
+        }
+        
+        // Verificar se há um endereço na URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const address = urlParams.get('address');
+        if (address) {
+            updateAddress(decodeURIComponent(address));
+        }
+
+        // Adicionar animação de entrada
+        document.addEventListener('DOMContentLoaded', function() {
+            const items = document.querySelectorAll('.experience-item, .achievement-card, .section');
+            items.forEach((item, index) => {
+                item.style.opacity = '0';
+                item.style.transform = 'translateY(20px)';
+                setTimeout(() => {
+                    item.style.transition = 'all 0.6s ease';
+                    item.style.opacity = '1';
+                    item.style.transform = 'translateY(0)';
+                }, index * 100);
+            });
+        });
+    </script>
+</body>
+</html> 
