@@ -970,30 +970,85 @@ body {
     }
     
     /* Experience Section */
+    .timeline {
+        position: relative;
+        padding: 0;
+    }
+    
     .timeline::before {
-        left: 20px;
+        left: 15px;
+        width: 2px;
+    }
+    
+    .timeline-item {
+        margin-bottom: 1.5rem;
     }
     
     .timeline-content {
-        width: calc(100% - 50px);
-        margin-left: 50px !important;
-        padding: 1.5rem;
+        width: calc(100% - 35px);
+        margin-left: 35px !important;
+        margin-right: 0 !important;
+        padding: 1rem;
+        border-radius: 10px;
+        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
     }
     
     .timeline-content::before {
-        left: -35px !important;
+        left: -20px !important;
+        width: 10px;
+        height: 10px;
+        border: 2px solid #2563eb;
+    }
+    
+    .timeline-header {
+        margin-bottom: 0.8rem;
     }
     
     .timeline-header h3 {
-        font-size: 1.2rem;
+        font-size: 1rem;
+        margin-bottom: 0.3rem;
+        color: #1f2937;
+        line-height: 1.3;
     }
     
     .company {
-        font-size: 0.9rem;
+        font-size: 0.8rem;
+        color: #2563eb;
+        font-weight: 600;
+        display: block;
+        margin-bottom: 0.2rem;
     }
     
     .period {
-        font-size: 0.85rem;
+        font-size: 0.75rem;
+        color: #6b7280;
+        background: #f3f4f6;
+        padding: 0.15rem 0.5rem;
+        border-radius: 10px;
+        display: inline-block;
+    }
+    
+    .timeline-content p {
+        font-size: 0.9rem;
+        line-height: 1.5;
+        margin-bottom: 1rem;
+        color: #4b5563;
+    }
+    
+    .tech-stack {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4rem;
+        margin-top: 0.8rem;
+    }
+    
+    .tech-tag {
+        font-size: 0.75rem;
+        padding: 0.3rem 0.6rem;
+        background: #e0f2fe;
+        color: #2563eb;
+        border-radius: 8px;
+        font-weight: 500;
     }
     
     /* Cases Section */
